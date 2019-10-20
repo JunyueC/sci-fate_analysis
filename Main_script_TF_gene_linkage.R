@@ -11,7 +11,7 @@ require(BiocParallel)
 require(RcisTarget)
 
 # load the helper functions 
-load("./linkage_function.RData")
+load("./script_downstream_processing/linkage_function.RData")
 
 # get TF list from RcisTarget package: 
 data(motifAnnotations_hgnc)

@@ -2,7 +2,7 @@
 suppressMessages(require(cowplot))
 suppressMessages(require(tidyverse))
 suppressMessages(require(monocle))
-load("./linkage_function.RData")
+load("./script_downstream_processing/linkage_function.RData")
 
 # define output folder
 output_folder = "./output/cell_linkage_analysis"
