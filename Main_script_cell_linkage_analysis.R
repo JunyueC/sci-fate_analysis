@@ -53,11 +53,8 @@ linked_cell_output_folder = file.path(output_folder, "Cell_linkage_anlysis")
 if(!file.exists(linked_cell_output_folder)) {
     dir.create(linked_cell_output_folder)
 }
-df_result = cds_linkage_analysis_compute_distance_correlation(cds_all, cds_past, cds_new, cell_groups, group_pairs, linked_cell_output_folder, df_gene_degradation, core_num)
-output_folder_transition_prob = file.path(output_folder, "Transition_prob")
-cds_compute_transition_prob(cds_all, cds_new, cell_groups, group_pairs, output_folder_transition_prob)
-df_combined = combine_distance_cor_prob(linked_cell_output_folder, output_folder_transition_prob)
-df_top_links = select_top_links(df_combined, cell_groups, group_pairs)
+
+df_top_links = cds_linkage_analysis(cds_all, cds_past, cell_groups, group_pairs, linked_cell_output_folder)
 df_top_links = df_top_links %>% filter(group != "0h_0h")
 saveRDS(df_top_links, file = file.path(output_folder, "df_cell_linkages.RDS"))
 
